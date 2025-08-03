@@ -95,9 +95,7 @@ def span_maker(token: str, mark: bool = False):
         return '<span>' + token + '</span>' 
 
 
-st.session_state.exp_name = "gpt2-newmerge-red_bear-metric-euclidean-unit_size-32-search_steps-25-data_source-minipile-merge_thr-0.04-merge_start-20000-merge_interval-8000-max_steps-100000"
-
-index_path = Path(".") / "visualizations" / f"index-{st.session_state.exp_name}"
+index_path = Path("/mnt/data/index-gpt2-newmerge")
 model_name_site_name = [d.split("-") for d in os.listdir(index_path)]
 if len(set(n[0] for n in model_name_site_name)) == 1:
     model_name = model_name_site_name[0][0]
@@ -108,7 +106,6 @@ else:
 cached_input, seq_edges = get_cached_input(Path(".") / "visualizations" / f"shared_acts-{model_name}")
 
 with st.sidebar:
-    # st.text(st.session_state.exp_name)
 
     if "sel_act_site" not in st.session_state:
         st.session_state.sel_act_site = all_sites[0]

@@ -44,9 +44,8 @@ def process_special_tokens(tokens):
     # return ["&nbsp;" if t == " " else t for t in tokens] "<": "&lt;", ">": "&gt;", 
     return [special_tokens.get(t, t.replace("\n", "\\n").replace("<", "&lt;").replace(">", "&gt;")) for t in tokens]
 
-st.session_state.exp_name = "gpt2-newmerge-red_bear-metric-euclidean-unit_size-32-search_steps-25-data_source-minipile-merge_thr-0.04-merge_start-20000-merge_interval-8000-max_steps-100000"
 
-preimage_path = Path(".") / "visualizations" / f"preimage-{st.session_state.exp_name}"
+preimage_path = Path(".") / "visualizations" / f"preimage-gpt2-newmerge-red_bear-metric-euclidean-unit_size-32-search_steps-25-data_source-minipile-merge_thr-0.04-merge_start-20000-merge_interval-8000-max_steps-100000"
 model_name_site_name = [d.split("-") for d in os.listdir(preimage_path)]
 if len(set(n[0] for n in model_name_site_name)) == 1:
     model_name = model_name_site_name[0][0]
@@ -56,7 +55,6 @@ else:
 cosine = True   # TODO add code for euclidean in cache_attribution.py
 
 with st.sidebar:
-    # st.text(st.session_state.exp_name)
 
     if "sel_act_site" not in st.session_state:
         st.session_state.sel_act_site = all_sites[0]
