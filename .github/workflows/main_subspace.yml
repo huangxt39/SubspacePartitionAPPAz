@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - subspace-partition
+name: Build and deploy Python app to Azure Web App - subspace
 
 on:
   push:
@@ -58,14 +58,14 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v2
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_D69A697598B44AA39D3DE717F5D72ED5 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_8966F94D45FE437AADCB30C3D763091A }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_1092B51039354A31BBAEF527CB3A99AC }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_1867056FFD8E4BDCB6D4CE33BFB2C6B5 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_E90D4F9A86EB4900B39DB9B25EA742A9 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_9938431F799A4EC0848A7739CFCB41B2 }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v3
         id: deploy-to-webapp
         with:
-          app-name: 'subspace-partition'
+          app-name: 'subspace'
           slot-name: 'Production'
           
